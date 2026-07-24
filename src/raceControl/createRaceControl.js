@@ -1,4 +1,5 @@
-export default function createRaceControlEventManager() {
+export default function createRaceControlEventManager(raceName) {
+    const race_title = raceName
   const eventRegistry = new Map();
 
   function validateEvent(event) {
@@ -90,5 +91,6 @@ export default function createRaceControlEventManager() {
     unsubscribe,
     emit,
     once,
+    race_title,
   };
 }
