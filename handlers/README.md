@@ -46,4 +46,4 @@ All handlers follow a consistent design:
 - Accept a `payload` object containing the event data.
 - Handle one specific event with a single responsibility.
 - Execute only the logic relevant to their assigned module.
-- Follow a consistent naming convention (`<module><Event>Handler`) to improve readability and maintainability.
+
