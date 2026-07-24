@@ -1,9 +1,9 @@
 import { race } from "./src/race/currentRaceControl.js";
-
+import { RACE_EVENTS } from "./raceEvents.js";
 import { mercedesRaceStartedHandler, redBullRaceStartedHandler } from "./handlers/index.js";
 
 
-race.subscribe("race:started", redBullRaceStartedHandler)
-race.subscribe("race:started",mercedesRaceStartedHandler)
+race.subscribe(RACE_EVENTS.RACE_STARTED, redBullRaceStartedHandler)
+race.subscribe(RACE_EVENTS.RACE_STARTED,mercedesRaceStartedHandler)
 
-race.emit("race:started",{circuit:"Silverstone"})
+race.emit(RACE_EVENTS.RACE_STARTED,{circuit:"Silverstone"})
