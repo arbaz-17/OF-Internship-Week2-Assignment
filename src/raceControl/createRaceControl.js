@@ -49,12 +49,46 @@ export function createRaceControlEventManager() {
 
     const handlerRemoved = eventHandlers.delete(handler);
 
-    if (!eventHandlers.size === 0) {
+    if (eventHandlers.size === 0) {
       eventRegistry.delete(event);
     }
 
     return handlerRemoved;
   }
 
-  function emit(event, payload) {}
+  function emit(event, payload) {
+    validateEvent(event);
+    validatePayload(payload);
+
+    let eventHandlers = eventRegistry.get(event)
+
+    if (!eventHandlers){
+        return
+    }
+
+    for (const handler of eventHandlers){
+        handler(payload)
+    }
+
+  }
+
+  function once(event, handler){
+
+    function oneTime(payload){
+
+        unsubscribe(event, oneTime)
+        handler(payload)
+
+    }
+
+    return subscribe(event, oneTime)
+
+  }
+
+  return {
+    subscribe,
+    unsubscribe,
+    emit,
+    once,
+  };
 }
