@@ -1,4 +1,4 @@
-export function createRaceControlEventManager() {
+export default function createRaceControlEventManager() {
   const eventRegistry = new Map();
 
   function validateEvent(event) {
