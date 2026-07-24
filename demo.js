@@ -1,5 +1,3 @@
-// demo.js
-
 import { race } from "./src/race/currentRaceControl.js";
 import { RACE_EVENTS } from "./raceEvents.js";
 
