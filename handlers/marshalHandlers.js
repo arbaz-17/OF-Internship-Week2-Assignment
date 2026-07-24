@@ -21,9 +21,3 @@ export function marshalRedFlagHandler(event) {
         `Marshals: Displaying red flags around the circuit because of ${event.reason}.`
     );
 }
-
-export function marshalSafetyCarWithdrawnHandler(event) {
-    console.log(
-        `Marshals: Safety Car withdrawn. Track status is ${event.trackStatus}.`
-    );
-}

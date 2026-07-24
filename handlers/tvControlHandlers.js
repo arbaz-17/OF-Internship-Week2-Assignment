@@ -1,5 +1,3 @@
-// handlers/tvControlHandlers.js
-
 export function tvRaceStartedHandler(payload) {
     console.log(
         `TV Control: Live broadcast started for ${payload.circuit}. ` +

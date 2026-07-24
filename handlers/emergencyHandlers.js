@@ -23,9 +23,3 @@ export function emergencyFireHandler(event) {
     );
 }
 
-export function emergencyDriverStatusHandler(event) {
-    console.log(
-        `Emergency Unit: Driver ${event.driver} status reported as "${event.status}".`
-    );
-}
-
