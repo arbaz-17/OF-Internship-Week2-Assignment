@@ -1,5 +1,5 @@
 export default function createRaceControlEventManager(raceName) {
-    const race_title = raceName
+  const race_title = raceName;
   const eventRegistry = new Map();
 
   function validateEvent(event) {
@@ -15,7 +15,10 @@ export default function createRaceControlEventManager(raceName) {
   }
 
   function validatePayload(payload) {
-    if ( payload !== undefined && (payload === null || typeof payload !== "object")) {
+    if (
+      payload !== undefined &&
+      (payload === null || typeof payload !== "object")
+    ) {
       throw new TypeError("Payload should be a non-empty object.");
     }
   }
@@ -61,29 +64,27 @@ export default function createRaceControlEventManager(raceName) {
     validateEvent(event);
     validatePayload(payload);
 
-    let eventHandlers = eventRegistry.get(event)
+    let eventHandlers = eventRegistry.get(event);
 
-    if (!eventHandlers){
-        return
+    if (!eventHandlers) {
+      return;
     }
 
-    for (const handler of eventHandlers){
-        handler(payload)
+    for (const handler of eventHandlers) {
+      handler(payload);
     }
-
   }
 
-  function once(event, handler){
+  function once(event, handler) {
+    validateEvent(event);
+    validateHandler(handler);
 
-    function oneTime(payload){
-
-        unsubscribe(event, oneTime)
-        handler(payload)
-
+    function oneTime(payload) {
+      unsubscribe(event, oneTime);
+      handler(payload);
     }
 
-    return subscribe(event, oneTime)
-
+    return subscribe(event, oneTime);
   }
 
   return {
