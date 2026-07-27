@@ -24,13 +24,8 @@ import {
     tvRaceFinishedHandler,
 } from "./handlers/index.js";
 
+console.log(`F1 EVENT MANAGEMENT SYSTEM: ${race.race_title}`);
 console.log("===================================");
-console.log(`F1 EVENT SYSTEM: ${race.race_title}`);
-console.log("===================================");
-
-/*
- * 1. Subscribe observers
- */
 
 // Race start observers
 race.subscribe(
@@ -119,9 +114,7 @@ race.subscribe(
     mercedesRaceFinishedHandler
 );
 
-/*
- * 2. Start the race
- */
+
 
 console.log("\n--- 1. RACE STARTED ---");
 
@@ -132,9 +125,7 @@ race.emit(RACE_EVENTS.RACE_STARTED, {
     startTime: "14:00",
 });
 
-/*
- * 3. Rain begins
- */
+
 
 console.log("\n--- 2. RAIN STARTED ---");
 
@@ -145,9 +136,6 @@ race.emit(RACE_EVENTS.RAIN_STARTED, {
     sector: 2,
 });
 
-/*
- * 4. A crash occurs
- */
 
 console.log("\n--- 3. CRASH REPORTED ---");
 
@@ -161,9 +149,6 @@ race.emit(RACE_EVENTS.CRASH_REPORTED, {
     medicalAssistanceRequired: true,
 });
 
-/*
- * 5. Debris is found
- */
 
 console.log("\n--- 4. DEBRIS REPORTED ---");
 
@@ -175,9 +160,6 @@ race.emit(RACE_EVENTS.DEBRIS_REPORTED, {
     trackObstruction: true,
 });
 
-/*
- * 6. Safety Car is deployed
- */
 
 console.log("\n--- 5. SAFETY CAR DEPLOYED ---");
 
@@ -188,23 +170,12 @@ race.emit(RACE_EVENTS.SAFETY_CAR_DEPLOYED, {
     sector: 2,
 });
 
-/*
- * 7. Remove only Mercedes from future Safety Car notifications.
- *
- * subscribe() returned this cleanup function.
- */
 
 console.log(
     "\nMercedes unsubscribes from Safety Car notifications."
 );
 
 stopMercedesSafetyCarNotifications();
-
-/*
- * 8. Safety Car is deployed again.
- *
- * Mercedes should not react this time.
- */
 
 console.log("\n--- 6. SECOND SAFETY CAR DEPLOYMENT ---");
 
@@ -215,9 +186,6 @@ race.emit(RACE_EVENTS.SAFETY_CAR_DEPLOYED, {
     sector: 1,
 });
 
-/*
- * 9. Demonstrate direct unsubscribe().
- */
 
 console.log(
     "\nRed Bull unsubscribes from rain notifications."
@@ -241,9 +209,6 @@ race.emit(RACE_EVENTS.RAIN_STARTED, {
     sector: 3,
 });
 
-/*
- * 10. Finish the race
- */
 
 const raceResult = {
     circuit: "Silverstone",
@@ -262,11 +227,6 @@ race.emit(
     raceResult
 );
 
-/*
- * Emit race:finished again to demonstrate once().
- *
- * The TV handler should not run again, while normal subscribers will.
- */
 
 console.log(
     "\n--- 9. RACE FINISHED EMITTED AGAIN ---"
@@ -276,10 +236,6 @@ race.emit(
     RACE_EVENTS.RACE_FINISHED,
     raceResult
 );
-
-/*
- * 11. Unknown events safely do nothing.
- */
 
 console.log("\n--- 10. UNKNOWN EVENT ---");
 
@@ -291,4 +247,3 @@ console.log("Unknown event was ignored safely.");
 
 console.log("\n===================================");
 console.log("DEMO COMPLETED");
-console.log("===================================");
