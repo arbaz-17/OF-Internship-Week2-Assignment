@@ -1,10 +1,7 @@
 # OF-Internship-Week2-Assignment
-Week 2 assignment submissions and foundational tasks for the OptimusFox Internship Program.
 # F1 Event Management and Notification System
 
 ## Overview
-
-This project was created as part of a weekly internship assignment focused on JavaScript execution concepts and design patterns.
 
 The assignment required building an **Event Management and Notification System** that supports:
 
