@@ -212,9 +212,9 @@ race.emit(RACE_EVENTS.RAIN_STARTED, {
 
 const raceResult = {
     circuit: "Silverstone",
-    winner: "Driver 1",
+    winner: "MAX",
     winningTeam: "Red Bull",
-    driver: "Driver 1",
+    driver: "Max Verstappen",
     position: 1,
     totalLaps: 52,
     finishTime: "15:32",

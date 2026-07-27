@@ -121,6 +121,6 @@ This project demonstrates the following JavaScript concepts:
 
 ## Running the Demo
 
-The complete system demonstration is available in the root-level `demo.js` file.
-
+The complete system demonstration is available in the root-level `demo.js` file and also in the below fiddle Link.
+[Fiddle Link](https://jsfiddle.net/arbaz_ahmad/6anomz0y/4/)
 The demo shows subscriptions, multiple handlers, event emission, cleanup functions, direct unsubscription, one-time handlers, payload delivery, and safe handling of unknown events.
